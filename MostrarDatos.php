@@ -1,5 +1,6 @@
 <?php
 require_once 'Conection.php';
+require_once 'PrintElements.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,21 +25,7 @@ require_once 'Conection.php';
     $sql="SELECT * from jobs";
     $result=mysqli_query(Conection(),$sql);
 
-    while($mostrar=mysqli_fetch_array($result)){
-    ?>
-    <tr>
-        <td><?php echo $mostrar['title']?></td>
-        <td><?php echo $mostrar['description']?></td>
-        <td><?php echo $mostrar['visible']?></td>
-        <td><?php echo $mostrar['months']?></td>
-        <td><?php echo $mostrar['updated_at']?></td>
-        <td><?php echo $mostrar['created_at']?></td>
-    </tr>
-
-    <?php
-
-    }
-
+    PrintElements($result);  //Imprime los elementos de la BD 
     ?>
 
 </table>
